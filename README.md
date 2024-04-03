@@ -36,24 +36,70 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
-**Truthtable**
+## Truthtable
+## Full_adder
+![Screenshot 2024-03-18 181619](https://github.com/23005672/FULL_ADDER_SUBTRACTOR/assets/138971519/0b18ce6a-ab4d-42f7-aff3-e6422eb679df)
+## Full_subtractor
+![Screenshot 2024-03-18 181628](https://github.com/23005672/FULL_ADDER_SUBTRACTOR/assets/138971519/c874805b-a6bc-430e-97ce-77aa6b706b66)
 
-**Procedure**
+## Procedure
+```
+## Full Adder:
+1.Open Quartus II and create a new project.
+2.Use schematic design entry to draw the full adder circuit. 
+3.The circuit consists of XOR, AND, and OR gates. 
+4.Compile the design, verify its functionality through simulation. 
+5.Implement the design on the target device and program it.
 
-Write the detailed procedure here
+## Full Subtractor: 
+1.Follow the same steps as for the full adder. 
+2.Draw the full subtractor circuit using schematic design. 
+3.The circuit includes XOR, AND, OR gates to perform subtraction. 
+4.Compile, simulate, implement, and program the design similarly to the full adder.
+```
+## Program:
+```
+Developed by: Kishore M
 
-**Program:**
+Reg no:212223040100
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+## Full_adder
+module fulladd_top(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+wire w1,w2,w3,w4;       
+xor(w1,a,b);
+xor(sum,w1,cin);        
+
+and(w2,a,b);
+and(w3,b,cin);
+and(w4,cin,a);
+
+or(carry,w2,w3,w4);
+endmodule
+```
+```
+## Full_subtractor
+module fullsub_top(a,b,Bin,BO,DIFF);
+input a,b,Bin;
+output BO,DIFF;
+assign DIFF = a ^ b ^ Bin;
+  assign BO = (a & b) | ((a ^ b) & Bin);
+endmodule
 */
+```
+## RTL Schematic
+![Screenshot 2024-03-18 181547](https://github.com/23005672/FULL_ADDER_SUBTRACTOR/assets/138971519/711ef60b-64a8-4ae0-88db-d56af7d28291)
 
-**RTL Schematic**
+## Output Timing Waveform
+## Full_adder
+![NEW 1](https://github.com/TEJA19092005/FULL_ADDER_SUBTRACTOR/assets/164043042/199c2ad7-5bb9-4cc2-8865-52f4bbf63b87)
 
-**Output Timing Waveform**
+## Full_subtractor
+![NEW 2](https://github.com/TEJA19092005/FULL_ADDER_SUBTRACTOR/assets/164043042/98cd3ebe-e472-4d3a-a3dd-c0ab66b69f10)
 
-**Result:**
+
+## Result:
 
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
-
-
-
